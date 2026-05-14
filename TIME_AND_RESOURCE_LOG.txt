@@ -1,0 +1,88 @@
+Time and Resource Log
+
+Project Title
+
+EO-SAR Binary Change Detection using Dual-Encoder EfficientNet-B4 and UNET Decoder
+
+Objective
+
+The objective of this project was to build a deep learning pipeline for binary change detection using pre-event Electro-Optical RGB images and post-event SAR grayscale images. The model predicts pixel-wise changed and unchanged regions from paired satellite imagery.
+
+
+Hardware Resources Used
+
+Resource: CPU
+Details: Local system CPU
+
+Resource: GPU
+Details: CUDA-supported GPU if available; otherwise CPU fallback
+
+Resource: RAM
+Details: Recommended 8 GB or higher
+
+Resource: Storage
+Details: Required for dataset, checkpoints, and generated visualizations
+
+Software Resources Used
+
+Tool / Library: Python
+Purpose: Main programming language
+
+Tool / Library: PyTorch
+Purpose: Deep learning framework
+
+Tool / Library: torchvision
+Purpose: Supporting vision utilities
+
+Tool / Library: timm
+Purpose: EfficientNet-B4 pretrained model backbone
+
+Tool / Library: NumPy
+Purpose: Array processing
+
+Tool / Library: Pillow
+Purpose: Image loading
+
+Tool / Library: PyYAML
+Purpose: Config file parsing
+
+Tool / Library: tqdm
+Purpose: Training and evaluation progress bars
+
+Tool / Library: Matplotlib
+Purpose: Saving prediction visualizations
+
+Dataset Resources
+
+The dataset is expected to contain paired EO and SAR images with corresponding target masks.
+
+Expected structure:
+
+data/
+|-- train/
+|   |-- pre-event/
+|   |-- post-event/
+|   `-- target/
+|-- val/
+|   |-- pre-event/
+|   |-- post-event/
+|   `-- target/
+`-- test/
+    |-- pre-event/
+    |-- post-event/
+    `-- target/
+
+Model Checkpoint
+
+The trained model checkpoint is stored as:
+
+best_model.pth
+
+If the checkpoint is too large for GitHub, it can be uploaded separately to Google Drive and linked in the README.
+
+Notes
+
+- The model uses a dual-encoder architecture because EO and SAR images have different modalities.
+- The SAR encoder is initialized randomly because it accepts single-channel SAR input.
+- The target masks are converted from multi-class damage labels into binary change labels.
+- No-data EO pixels are excluded from loss and metric calculations.

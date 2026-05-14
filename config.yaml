@@ -1,0 +1,40 @@
+# Hyperparameters for DualEncoderUNet Change Detection
+
+#
+# Pass this file to the training script:
+#   python train.py --config config.yaml
+
+# Data paths 
+# Update these to match your local dataset layout after extraction.
+train_dir: "data/train"     # path containing pre-event/, post-event/, target/
+val_dir:   "data/val"       # set to null to skip validation
+# test_dir is only used by eval.py via --data_path; not needed here.
+
+# Training 
+epochs:    30
+seed:      42
+
+# Model 
+pretrained: true             # use ImageNet weights for the EO encoder
+
+# Dataloader 
+batch_size:  8
+patch_size:  256             # random crop size during training; center crop for val/test
+num_workers: 2
+
+#Optimiser (AdamW) 
+learning_rate: 0.0001
+weight_decay:  0.01
+
+# Scheduler (ReduceLROnPlateau, mode=max on Val IoU) 
+scheduler_patience: 3        # epochs without improvement before LR reduction
+scheduler_factor:   0.5
+
+
+# Combined Dice + weighted BCE with logits.
+# pos_weight compensates for the ~1:63 class imbalance (change pixels are ~1.6% of total).
+# Computed from training set: (unchanged_pixels / changed_pixels) ≈ 62.7
+pos_weight: 62.7
+
+# Checkpoint saving
+checkpoint_dir: "checkpoints"   # best_model.pth will be saved here
