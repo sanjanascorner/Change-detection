@@ -85,8 +85,7 @@ Create an environment and install the required packages:
 pip install torch torchvision timm numpy pillow pyyaml tqdm matplotlib
 ```
 
-If you use CUDA, install the PyTorch build that matches your CUDA version from
-the official PyTorch installation instructions.
+
 
 ## Configuration
 
@@ -131,12 +130,13 @@ The training script:
 - saves the best validation IoU checkpoint to:
 
 ```text
-checkpoints/best_model.pth
+checkpoints:
+https://drive.google.com/file/d/1xptDdhvmItdiEapyfQ34qO1l8WRoHclL/view?usp=sharing
 ```
 
 ## Evaluation
 
-Evaluate a trained checkpoint on a split:
+Evaluated a trained checkpoint on a split of:
 
 ```bash
 python src/eval.py \
@@ -155,7 +155,7 @@ The evaluator reports:
 - recall
 - F1
 - accuracy
-- pixel-level confusion matrix
+
 
 ## Save Visualizations
 
@@ -184,10 +184,4 @@ Pre-event EO | Ground Truth | Prediction
   the size used during training.
 - The EO no-data mask excludes all-black EO pixels from loss and metric
   calculations.
-- If your source file is named `dataloader.py`, make sure imports in
-  `train.py` and `eval.py` match that filename, for example:
 
-```python
-from dataloader import get_dataloaders
-from dataloader import ChangeDetectionDataset
-```
