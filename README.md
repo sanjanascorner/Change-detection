@@ -1,4 +1,4 @@
-# EO-SAR Binary Change Detection
+# EO-SAR Binary Change Detection with Dual Encoder EfficientNetB4+UNet
 
 PyTorch implementation of a dual-encoder U-Net for binary change detection using
 pre-event electro-optical (EO/RGB) imagery and post-event SAR/grayscale imagery.
