@@ -74,11 +74,7 @@ data/
 
 Model Checkpoint
 
-The trained model checkpoint is stored as:
-
-best_model.pth
-
-If the checkpoint is too large for GitHub, it can be uploaded separately to Google Drive and linked in the README.
+https://drive.google.com/file/d/1xptDdhvmItdiEapyfQ34qO1l8WRoHclL/view?usp=sharing
 
 Notes
 
