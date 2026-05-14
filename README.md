@@ -110,6 +110,8 @@ checkpoint_dir: "checkpoints"
 
 Update `train_dir` and `val_dir` before training.
 
+
+
 ## Training
 
 From the project root:
@@ -184,4 +186,5 @@ Pre-event EO | Ground Truth | Prediction
   the size used during training.
 - The EO no-data mask excludes all-black EO pixels from loss and metric
   calculations.
+  - Also made use of Google Colab for Understanding Data Better, Have attached the Colab Notebooks too
 
