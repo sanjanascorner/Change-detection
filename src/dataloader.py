@@ -23,11 +23,8 @@ class ChangeDetectionDataset(Dataset):
         Original 2 (Damaged)    → 1 (Change)
         Original 3 (Destroyed)  → 1 (Change)
 
-    Directory structure expected under root_dir:
-        root_dir/
-            pre-event/   ← RGB EO images
-            post-event/  ← Grayscale SAR images
-            target/      ← Annotation masks (values 0-3)
+    
+            
     """
 
     def __init__(self, root_dir: str, split: str = "train", patch_size: int = 256, augment: bool = False):
